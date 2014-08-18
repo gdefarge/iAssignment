@@ -22,6 +22,7 @@
 		393328141991829000B0710B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393327F31991828F00B0710B /* UIKit.framework */; };
 		3933281C1991829000B0710B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3933281A1991829000B0710B /* InfoPlist.strings */; };
 		3933281E1991829000B0710B /* iAssignmentClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3933281D1991829000B0710B /* iAssignmentClientTests.m */; };
+		398550EE19A229DB00693424 /* GDPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398550ED19A229DB00693424 /* GDPostViewController.m */; };
 		39D7F98A1993BAB600D53B94 /* GDVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D7F9891993BAB600D53B94 /* GDVideo.m */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		393328191991829000B0710B /* iAssignmentClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iAssignmentClientTests-Info.plist"; sourceTree = "<group>"; };
 		3933281B1991829000B0710B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3933281D1991829000B0710B /* iAssignmentClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAssignmentClientTests.m; sourceTree = "<group>"; };
+		398550EC19A229DB00693424 /* GDPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDPostViewController.h; sourceTree = "<group>"; };
+		398550ED19A229DB00693424 /* GDPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDPostViewController.m; sourceTree = "<group>"; };
 		39D7F9881993BAB600D53B94 /* GDVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDVideo.h; sourceTree = "<group>"; };
 		39D7F9891993BAB600D53B94 /* GDVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDVideo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,16 +120,11 @@
 		393327F51991828F00B0710B /* iAssignmentClient */ = {
 			isa = PBXGroup;
 			children = (
-				393327FE1991828F00B0710B /* GDAppDelegate.h */,
-				393327FF1991828F00B0710B /* GDAppDelegate.m */,
-				393328011991828F00B0710B /* Main_iPhone.storyboard */,
-				393328041991828F00B0710B /* Main_iPad.storyboard */,
-				393328071991828F00B0710B /* GDViewController.h */,
-				393328081991828F00B0710B /* GDViewController.m */,
+				3934D97419A2A8B40064B55F /* View */,
+				398550F019A229F500693424 /* Controller */,
+				398550EF19A229E500693424 /* Model */,
 				3933280A1991828F00B0710B /* Images.xcassets */,
 				393327F61991828F00B0710B /* Supporting Files */,
-				39D7F9881993BAB600D53B94 /* GDVideo.h */,
-				39D7F9891993BAB600D53B94 /* GDVideo.m */,
 			);
 			path = iAssignmentClient;
 			sourceTree = "<group>";
@@ -134,6 +132,8 @@
 		393327F61991828F00B0710B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				393327FE1991828F00B0710B /* GDAppDelegate.h */,
+				393327FF1991828F00B0710B /* GDAppDelegate.m */,
 				393327F71991828F00B0710B /* iAssignmentClient-Info.plist */,
 				393327F81991828F00B0710B /* InfoPlist.strings */,
 				393327FB1991828F00B0710B /* main.m */,
@@ -158,6 +158,35 @@
 				3933281A1991829000B0710B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3934D97419A2A8B40064B55F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				393328011991828F00B0710B /* Main_iPhone.storyboard */,
+				393328041991828F00B0710B /* Main_iPad.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		398550EF19A229E500693424 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39D7F9881993BAB600D53B94 /* GDVideo.h */,
+				39D7F9891993BAB600D53B94 /* GDVideo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		398550F019A229F500693424 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				393328071991828F00B0710B /* GDViewController.h */,
+				393328081991828F00B0710B /* GDViewController.m */,
+				398550EC19A229DB00693424 /* GDPostViewController.h */,
+				398550ED19A229DB00693424 /* GDPostViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +292,7 @@
 				393328091991828F00B0710B /* GDViewController.m in Sources */,
 				39D7F98A1993BAB600D53B94 /* GDVideo.m in Sources */,
 				393328001991828F00B0710B /* GDAppDelegate.m in Sources */,
+				398550EE19A229DB00693424 /* GDPostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

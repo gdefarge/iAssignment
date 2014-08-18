@@ -23,21 +23,31 @@
     [super viewDidLoad];
     self.tableViewController.dataSource = self;
     self.tableViewController.delegate = self;
+    self.urlTextField.delegate = self;
     self.videos = [[NSMutableArray alloc] init];
-    [self requestVideos];
-    [self.tableViewController reloadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self requestVideos];
+}
+
+#pragma mark Keyboard management
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField
+{
+    [theTextField resignFirstResponder];
+    return YES;
+}
 
 - (void)requestVideos
 {
+    // Get url of the server from the GUI
     NSMutableString *guiInput = [[NSMutableString alloc] initWithString:self.urlTextField.text];
     [guiInput appendString:@"/video"];
-    
     NSURL *url = [NSURL URLWithString:guiInput];
     
+    // Perform the http request
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response,
@@ -45,13 +55,16 @@
      {
          if (data.length > 0 && connectionError == nil)
          {
+             // Empty the local list of videos (on iOS device)
+             [self.videos removeAllObjects];
+             
+             // Get list of videos from JSON result of the request
              NSArray * videos = [NSJSONSerialization JSONObjectWithData:data
                                                                 options:0
                                                                   error:NULL];
-             
              NSLog(@"JSON received: %@", videos);
              
-             
+             // Add each video from the JSON result to the the local list of videos
              for (NSDictionary *dico in videos) {
                  
                  GDVideo *currentVideo = [[GDVideo alloc] init];
@@ -62,6 +75,9 @@
                  
                  [self.videos addObject:currentVideo];
              }
+             
+             // Refresh the table of the GUI
+            [self.tableViewController reloadData];
          }
      }];
 }

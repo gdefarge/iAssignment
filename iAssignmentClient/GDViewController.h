@@ -5,6 +5,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GDViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GDViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @end
